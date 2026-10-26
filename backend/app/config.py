@@ -114,6 +114,13 @@ class Settings(BaseSettings):
     supabase_storage_bucket: str = "verification-images"
     supabase_upsell_storage_bucket: str = "upsell-images"
 
+    # Supabase Settings
+    supabase_db_user: str = "postgres"
+    supabase_db_password: str = "postgres"
+    supabase_db_host: str = "db"
+    supabase_db_port: int = 5432
+    supabase_db_name: str = "propertyflow"
+
     # Database Connection Pool Configuration
     database_pool_size: int = 20  # Base connection pool size
     database_max_overflow: int = 30  # Additional connections when needed
