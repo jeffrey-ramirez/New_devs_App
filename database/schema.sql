@@ -34,3 +34,13 @@ CREATE TABLE reservations (
 -- RLS Policies (Simulation)
 ALTER TABLE properties ENABLE ROW LEVEL SECURITY;
 ALTER TABLE reservations ENABLE ROW LEVEL SECURITY;
+
+-- Revenue totals per property and tenant, rounded to cents
+CREATE VIEW revenue_summary AS
+SELECT
+    property_id,
+    tenant_id,
+    ROUND(SUM(total_amount), 2) AS total_revenue,
+    COUNT(*) AS reservation_count
+FROM reservations
+GROUP BY property_id, tenant_id;
